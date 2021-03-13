@@ -1,0 +1,14 @@
+
+<ActionBar title = "Demo App"></ActionBar>
+<GridLayout>
+    <StackLayout class="login-panel">
+        <TextField hint="Enter email" [(ngModel)]="this.loginModel.email" secure="false" 
+        autocorrect="false" autocapitalize="false"></TextField>
+        <TextField hint="Enter password" [(ngModel)]="this.loginModel.password" secure="true" 
+        autocorrect="false" minLength="8"></TextField>
+        <Button text="Login" (tap)="onClickLogin($event)"></Button>
+        <!-- <Button text="Login" [nsRouterLink]="['/this.loginModel', this.loginModel.email]"  -->
+        <!-- pageTransition="slide" clearHistory="true"></Button> -->
+    </StackLayout>    
+</GridLayout>
+
