@@ -11,8 +11,12 @@ import { Location } from '@angular/common';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private activeRouter: ActivatedRoute, 
-              private location: Location, 
+  public userEmail: String
+  public firstName: String
+  public lastName: String
+
+  constructor(private activeRouter: ActivatedRoute,
+              private location: Location,
               private logService: LoginService) { }
 
   ngOnInit() {
@@ -24,7 +28,7 @@ export class DashboardComponent implements OnInit {
       let _token = params["token"] as string
       console.log(_token)
     })
-    
+
   }
 
   goBack(){
@@ -33,7 +37,7 @@ export class DashboardComponent implements OnInit {
   }
 
   openSettings(){
-    
+
   }
 
 }

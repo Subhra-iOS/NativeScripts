@@ -3,3 +3,22 @@
   <NavigationButton title="back" (tap)="goBack()"></NavigationButton>
   <ActionItem icon="font://&#xf013;" class="fas" ios.position="right" (tap)="openSettings()"></ActionItem>
 </ActionBar>
+<StackLayout class="dashboard-css">
+  <Image
+    src="https://play.nativescript.org/dist/assets/img/NativeScript_logo.png">
+  </Image>
+  <FlexboxLayout flexDirection="column">
+    <FlexboxLayout class="m-15">
+        <Label textWrap="true" text="Email:" class="email-css"></Label>
+        <TextField [text]="this.userEmail" [(ngModel)]="this.userEmail" hint="Enter email"></TextField>
+    </FlexboxLayout>
+    <FlexboxLayout class="m-15">
+      <Label textWrap="true" text="FirstName:" class="email-css"></Label>
+      <TextField [text]="this.firstName" [(ngModel)]="this.firstName" hint="Enter firstname"></TextField>
+    </FlexboxLayout>
+    <FlexboxLayout class="m-15">
+      <Label textWrap="true" text="LastName:" class="email-css"></Label>
+      <TextField [text]="this.lastName" [(ngModel)]="this.lastName" hint="Enter lastname"></TextField>
+    </FlexboxLayout>
+  </FlexboxLayout>
+</StackLayout>
