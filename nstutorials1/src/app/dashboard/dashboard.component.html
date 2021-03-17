@@ -4,8 +4,11 @@
   <ActionItem icon="font://&#xf013;" class="fas" ios.position="right" (tap)="openSettings()"></ActionItem>
 </ActionBar>
 <StackLayout class="dashboard-css">
+    <Image row="0" col="0" src="font://&#xF2b9;" class="fas t-36"></Image>
+    <!-- Image with stretch property ("none", "aspectFill" and "aspectFit") -->
+    <Image src="~/resource/dashboardbanner-iPhone.png" stretch="aspectFill" ></Image>
   <FlexboxLayout flexDirection="column">
-    <Image src="~/resource/dashboardbanner-iPhone" stretch="none" ></Image>
+
     <FlexboxLayout class="m-15">
         <Label textWrap="true" text="Email:" class="email-css"></Label>
         <TextField [text]="this.userEmail" [(ngModel)]="this.userEmail" hint="Enter email"></TextField>
