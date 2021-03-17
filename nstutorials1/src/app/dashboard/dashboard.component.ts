@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../app-service/login.service';
 import { Location } from '@angular/common';
 import { RouterExtensions } from '@nativescript/angular';
+import { Folder, knownFolders, path } from '@nativescript/core/file-system';
+import { fromFile, ImageSource } from '@nativescript/core/image-source';
 
 
 @Component({
@@ -15,6 +17,7 @@ export class DashboardComponent implements OnInit {
   public userEmail: String
   public firstName: String
   public lastName: String
+ // public imageFromLocalFile: ImageSource
 
   constructor(private activeRouter: RouterExtensions,
               private location: Location,
@@ -31,6 +34,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     //this.onLoad()
+    //this.onLoadLocalImage()
   }
 
 //   private onLoad(){
@@ -39,6 +43,12 @@ export class DashboardComponent implements OnInit {
 //       console.log(_token)
 //     })
 
+//   }
+
+//   private onLoadLocalImage(){
+//     const folder: Folder = <Folder> knownFolders.currentApp();
+//     const folderPath: string = path.join(folder.path, "resource/dashboardbanner-iPhone.png");
+//     this.imageFromLocalFile = <ImageSource> fromFile(folderPath);
 //   }
 
   goBack(){

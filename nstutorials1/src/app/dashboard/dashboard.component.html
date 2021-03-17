@@ -4,10 +4,8 @@
   <ActionItem icon="font://&#xf013;" class="fas" ios.position="right" (tap)="openSettings()"></ActionItem>
 </ActionBar>
 <StackLayout class="dashboard-css">
-  <Image
-    src="https://play.nativescript.org/dist/assets/img/NativeScript_logo.png">
-  </Image>
   <FlexboxLayout flexDirection="column">
+    <Image src="~/resource/dashboardbanner-iPhone" stretch="none" ></Image>
     <FlexboxLayout class="m-15">
         <Label textWrap="true" text="Email:" class="email-css"></Label>
         <TextField [text]="this.userEmail" [(ngModel)]="this.userEmail" hint="Enter email"></TextField>
