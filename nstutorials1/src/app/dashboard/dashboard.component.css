@@ -1,27 +1,51 @@
 .dashboard-css{
     vertical-align:top;
-    font-size: 15;
-    margin-top: 10%;
+    margin-top: 10;
     margin-left: 20;
     margin-right: 20;
     background-color:bisque;
+    border-radius: 4;
+    height: 95%;
 }
 
-.email-css{
+.label-css{
     font-size: 14;
     margin-left: 20;
+    margin-right: 10;
+    margin-top: 10;
 }
 
 Image {
-    width: 50;
-    height: 50;
+    margin-top:20px;
+    width: 90%;
+    height:30%;
 }
 
-.fas {
-    font-family: "Font Awesome 5 Free", "fa-solid-900";
-    font-weight: 900;
+.txtField-css{
+    margin-top: 20;
+    padding-left: 20;
+    font-size: 15;
+    text-align: left;
+    border: black;
+    border-radius: 4;
+    padding-left: 5;
+    padding-right: 5;
+    background-color:lightyellow;
+    height: 35;
+    padding-top: 15;
 }
 
-.t-36 {
-    font-size: 36;
+.big-label {
+    font-size: 50;
+    font-family: monospace;
+    margin: 20 20 20 20;
+    font-weight: 500;
+    text-align: center;
+    background-color:turquoise;
+}
+
+.dashboardButton-css{
+    border-radius: 4;
+    background-color: cornflowerblue;
+    color: white;
 }

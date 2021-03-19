@@ -3,8 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../app-service/login.service';
 import { Location } from '@angular/common';
 import { RouterExtensions } from '@nativescript/angular';
-import { Folder, knownFolders, path } from '@nativescript/core/file-system';
-import { fromFile, ImageSource } from '@nativescript/core/image-source';
+import {Color, Label, TextField } from '@nativescript/core';
+import { EventData } from '@nativescript/core/data/observable';
+import { StackLayout } from '@nativescript/core/ui/layouts/stack-layout';
+
+
 
 
 @Component({
@@ -17,7 +20,7 @@ export class DashboardComponent implements OnInit {
   public userEmail: String
   public firstName: String
   public lastName: String
- // public imageFromLocalFile: ImageSource
+  private page:StackLayout
 
   constructor(private activeRouter: RouterExtensions,
               private location: Location,
@@ -34,7 +37,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     //this.onLoad()
-    //this.onLoadLocalImage()
+  }
+
+  onPageLoaded(args: EventData){
+    this.page = <StackLayout>args.object
   }
 
 //   private onLoad(){
@@ -45,12 +51,6 @@ export class DashboardComponent implements OnInit {
 
 //   }
 
-//   private onLoadLocalImage(){
-//     const folder: Folder = <Folder> knownFolders.currentApp();
-//     const folderPath: string = path.join(folder.path, "resource/dashboardbanner-iPhone.png");
-//     this.imageFromLocalFile = <ImageSource> fromFile(folderPath);
-//   }
-
   goBack(){
     this.logService.resetToken()
     this.location.back()
@@ -58,6 +58,18 @@ export class DashboardComponent implements OnInit {
 
   openSettings(){
 
+  }
+
+  didTextChange(args: EventData){
+    let textField = args.object as TextField
+    console.log("Text Has been changed to: ",textField.text)
+  }
+
+  onClickRunAnimation(){
+    console.log("Trigger animation")
+    let view = <Label>this.page.getViewById("lblAnimate")
+    view.backgroundColor = new Color("red")
+    view.animate({backgroundColor: new Color("green"), delay: 0.3, duration: 0.5})
   }
 
 }

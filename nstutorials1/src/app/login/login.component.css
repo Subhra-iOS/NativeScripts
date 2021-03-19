@@ -1,8 +1,29 @@
 .login-panel{
     vertical-align:top;
-    font-size: 15;
     margin-top: 10%;
     margin-left: 20;
     margin-right: 20;
     background-color:bisque;
+    border-radius: 4;
+    height: 30%;
+}
+
+.txtField-css{
+    margin-top:20;
+    margin-right: 20;
+    margin-right: 20;
+    font-size: 13;
+    text-align: left;
+    border: black;
+    border-radius: 4;
+    padding-left: 5;
+    padding-right: 5;
+    background-color:lightyellow;
+    height: 35;
+}
+
+.actionButton-css{
+    border-radius: 4;
+    background-color: cornflowerblue;
+    color: white;
 }
