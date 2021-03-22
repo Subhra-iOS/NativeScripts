@@ -38,10 +38,12 @@ Image {
 .big-label {
     font-size: 50;
     font-family: monospace;
-    margin: 20 20 20 20;
-    font-weight: 500;
-    text-align: center;
-    background-color:turquoise;
+    font-weight: 100;
+    background-color: #3a53ff;
+    color: white;
+    border-radius: 10;
+    padding-left: 100;
+    padding-right: 100;
 }
 
 .dashboardButton-css{
@@ -49,3 +51,12 @@ Image {
     background-color: cornflowerblue;
     color: white;
 }
+.view {
+    animation-name: rotate;
+    animation-duration: 3;
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+

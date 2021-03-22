@@ -1,55 +1,55 @@
-<Page loaded="onPageLoaded">
-    <!-- <Page.actionBar> -->
-        <ActionBar title="Details">
-          <NavigationButton title="back" (tap)="goBack()"></NavigationButton>
-          <ActionItem icon="font://&#xf013;" class="fas" ios.position="right" (tap)="openSettings()"></ActionItem>
-        </ActionBar>
-    <!-- </Page.actionBar> -->
+
+
+  <ActionBar title="Details">
+    <NavigationButton title="back" (tap)="goBack()"></NavigationButton>
+    <ActionItem icon="font://&#xf013;"
+                class="fas" ios.position="right"
+                (tap)="openSettings()"></ActionItem>
+  </ActionBar>
+
   <!-- Each page can have only a single root view -->
-      <StackLayout  class="dashboard-css">
-          <!-- Image with stretch property ("none", "aspectFill" and "aspectFit") -->
-          <Image src="res://dashboardbanner-iPhone.png"
-              stretch="aspectFill" ></Image>
-          <FlexboxLayout flexDirection="column">
-                <Label textWrap="true"
-                      text="Email:"
-                      class="label-css">
-                </Label>
-                <TextField class = "txtField-css"
-                          [text]="this.userEmail"
-                          [(ngModel)]="this.userEmail"
-                          hint="Enter email"
-                          editable = "false">
-                </TextField>
-              <Label textWrap="true"
-                    text="FirstName:"
-                    class="label-css">
-              </Label>
-              <TextField class = "txtField-css"
-                        [text]="this.firstName"
-                        [(ngModel)]="this.firstName"
-                        hint="Enter firstname"
-                        editable="true"
-                        (returnPress)="didTextChange($event)">
-              </TextField>
-              <Label textWrap="true"
-                    text="LastName:"
-                    class="label-css">
-              </Label>
-              <TextField  class = "txtField-css"
-                          [text]="this.lastName"
-                        [(ngModel)]="this.lastName"
-                        hint="Enter lastname"
-                        editable="true"
-                        (returnPress)="didTextChange($event)">
-              </TextField>
-              <Button class="dashboardButton-css"
-                      (tap)="onClickRunAnimation"
-                      text="Run animation"
-                      fontSize="16"></Button>
-              <Label id="lblAnimate" text="{N}" class="big-label"></Label>
-          </FlexboxLayout>
-    </StackLayout>
-</Page>
+  <StackLayout  id="stackView" class="dashboard-css">
+        <!-- Image with stretch property ("none", "aspectFill" and "aspectFit") -->
+    <Image src="res://dashboardbanner-iPhone.png"
+        stretch="aspectFill" ></Image>
+    <FlexboxLayout flexDirection="column">
+      <Label textWrap="true"
+            text="Email:"
+            class="label-css"></Label>
+      <TextField class = "txtField-css"
+                [text]="this.userEmail"
+                [(ngModel)]="this.userEmail"
+                hint="Enter email"
+                editable = "false"></TextField>
+      <Label textWrap="true"
+          text="FirstName:"
+          class="label-css"></Label>
+      <TextField class = "txtField-css"
+              [text]="this.firstName"
+              [(ngModel)]="this.firstName"
+              hint="Enter firstname"
+              editable="true"
+              (returnPress)="didTextChange($event)"></TextField>
+      <Label textWrap="true"
+          text="LastName:"
+          class="label-css"></Label>
+      <TextField  class = "txtField-css"
+                [text]="this.lastName"
+              [(ngModel)]="this.lastName"
+              hint="Enter lastname"
+              editable="true"
+              (returnPress)="didTextChange($event)"></TextField>
+      <Button class="dashboardButton-css"
+            (tap)="onClickRunAnimation()"
+            text="Run animation"
+            fontSize="16"></Button>
+        <Label id="lblAnimate" text="{N}"
+              class="big-label"
+              textWrap="true"
+              width = "80"
+              top= "10"
+              height="80"></Label>
+    </FlexboxLayout>
+</StackLayout>
 
 
