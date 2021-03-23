@@ -6,11 +6,13 @@
   <TextField hint="Email Address" keyboardType="email"
              autocorrect="false"
              autocapitalizationType="none"
-             [(ngModel)] = "email"></TextField>
+             [(ngModel)] = "user.email"></TextField>
   <TextField hint="Password"
-             secure="true"></TextField>
-  <Button text="Sign in"
+             secure="true"
+             [(ngModel)] = "user.password"></TextField>
+  <Button [text]= "isLoggedIn ? 'Sign in' : 'Sign up'"
           class="submit-button"
           (tap)="onClickSubmit()"></Button>
-  <Button text="Sign up for Groceries"></Button>
+  <Button [text]= "isLoggedIn ? 'Back to login' : 'Sign up for Groceries'"
+          (tap) = "onClickToggle()"></Button>
 </StackLayout>
