@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService: UserService) {
         this.user = new User()
+        this.user.email = "subhra@yopmail.com"
+        this.user.password = "123456"
    }
 
   ngOnInit() {
@@ -39,7 +41,18 @@ export class LoginComponent implements OnInit {
   }
 
   private signup(){
-      this.userService.register(this.user)
+      this.userService.register(this.user).subscribe(
+          (result)=>{
+            console.log(result)
+          },
+          ()=>{
+            alert("Your account has successfully created")
+            this.onClickToggle()
+          },
+          ()=>{
+            alert("We are unable to process your request")
+          }
+      )
   }
 
 }
