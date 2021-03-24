@@ -38,6 +38,7 @@ export class UserService {
             tap(
             (data: any) => {
                 Config.token = data._kmd.authtoken //Need to check
+                console.log(Config.token)
             },
             (errorResponse: any) =>{
                 console.log(errorResponse)

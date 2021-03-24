@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     //TODO task
     this.userService.login(this.user).subscribe(
         (result) => {
+            console.log("Login success:" + result._kmd.authtoken)
             this.router.navigate(["/list"])
         },
         (error) => alert("We are not able to find any account")
