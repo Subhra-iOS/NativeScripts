@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from './../../shared/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from './../../shared/user/user';
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
    public user: User
    public isLoggedIn = true
 
-  constructor(private userService: UserService) {
+  constructor(private router: Router, private userService: UserService) {
         this.user = new User()
         this.user.email = "subhra@yopmail.com"
         this.user.password = "123456"
@@ -38,6 +39,13 @@ export class LoginComponent implements OnInit {
 
   private signin(){
     //TODO task
+    this.userService.login(this.user).subscribe(
+        (result) => {
+            this.router.navigate(["/list"])
+        },
+        (error) => alert("We are not able to find any account")
+
+    )
   }
 
   private signup(){

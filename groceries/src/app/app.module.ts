@@ -1,3 +1,4 @@
+import { ListComponent } from './app-modules/list/list.component';
 import { NativeScriptFormsModule, NativeScriptHttpClientModule } from "@nativescript/angular";
 import { LoginComponent } from './app-modules/login/login.component';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
@@ -19,7 +20,8 @@ import { AppComponent } from "./app.component";
     ],
     declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        ListComponent
     ],
     providers: [],
     schemas: [
