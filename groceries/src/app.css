@@ -36,3 +36,11 @@ TextField{
     border-width: 1;
     border-color: black;
 }
+
+.small-spacing{
+    margin: 5;
+}
+
+.medium-spacing{
+    margin: 10;
+}

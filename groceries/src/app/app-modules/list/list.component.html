@@ -1,3 +1,9 @@
-<p>
-  list works!
-</p>
+
+<GridLayout>
+  <ListView [items] = "groceryList" class="small-spacing">
+    <ng-template let-item = "item">
+      <Label [text] = "item.name" class="medium-spacing"></Label>
+    </ng-template>
+  </ListView>
+</GridLayout>
+
