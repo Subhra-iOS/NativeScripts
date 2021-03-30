@@ -1,9 +1,40 @@
 
-<GridLayout>
-  <ListView [items] = "groceryList" class="small-spacing">
+<ActionBar title= "Groceries">
+  <ActionItem text= "Share"
+              (tap) = "share()"
+              ios.systemicon = "9"
+              ios.position = "right"></ActionItem>
+</ActionBar>
+
+<GridLayout rows = "auto, *">
+
+  <GridLayout row="0"
+              columns="*, auto"
+              class="add-bar">
+    <TextField #groceryTextField
+               [(ngModel)]="grocery"
+               hint="Enter a grocery item"
+               col="0"></TextField>
+    <Image src="res://add"
+           (tap)="addItem()"
+           col="1"></Image>
+  </GridLayout>
+
+  <ListView row = "1"
+            [items] = "this.groceryList"
+            class="small-spacing"
+            [class.visible] = "isListLoaded">
     <ng-template let-item = "item">
-      <Label [text] = "item.name" class="medium-spacing"></Label>
-    </ng-template>
+      <Label  [text] = "item.name"
+              class="medium-spacing"></Label>
+      </ng-template>
   </ListView>
+
+  <ActivityIndicaor [busy]= "isLoading"
+                    [visibility]="isLoading ? 'visible' : 'collapsed'"
+                    row = "1"
+                    horizontalAlignment = "center"
+                    verticalAlignment = "center" ></ActivityIndicaor>
+
 </GridLayout>
 

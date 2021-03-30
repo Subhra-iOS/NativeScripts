@@ -5,6 +5,8 @@ import { User } from './../../shared/user/user';
 import { Page } from '@nativescript/core/ui/page';
 import { Color } from '@nativescript/core/color';
 import { View } from '@nativescript/core/ui/core/view';
+import { setHintColor } from '../../shared/utils/utils';
+import { TextField } from '@nativescript/core';
 
 
 @Component({
@@ -18,6 +20,8 @@ export class LoginComponent implements OnInit {
    public user: User
    public isLoggedIn = true
    @ViewChild('stackContainer') stackContainer: ElementRef
+   @ViewChild('email') emailTextField: ElementRef
+   @ViewChild('password') passwordTextField: ElementRef
 
   constructor(private router: Router,
               private userService: UserService,
@@ -25,6 +29,8 @@ export class LoginComponent implements OnInit {
         this.user = new User()
         this.user.email = "subhra@yopmail.com"
         this.user.password = "123456"
+        // this.user.email = "alex@nuviuos.com"
+        // this.user.password = "password"
    }
 
   ngOnInit() {
@@ -34,6 +40,10 @@ export class LoginComponent implements OnInit {
 
   onClickSubmit(){
       console.log("Tap on sign in button")
+      if(!this.user.isValidate()){
+          alert('Please enter a valid email address')
+          return
+      }
       if(this.isLoggedIn){
         this.signin()
       }else{
@@ -43,9 +53,10 @@ export class LoginComponent implements OnInit {
 
   onClickToggle(){
       this.isLoggedIn = !this.isLoggedIn
+      this.setTextFieldColors()
       const container = <View>this.stackContainer.nativeElement
       container.animate({
-          backgroundColor : this.isLoggedIn ? new Color('white') : new Color('yellow'),
+          backgroundColor : this.isLoggedIn ? new Color('white') : new Color('#9fcb00cd'),
           duration: 300
       })
   }
@@ -75,6 +86,19 @@ export class LoginComponent implements OnInit {
             alert("We are unable to process your request")
           }
       )
+  }
+
+  private setTextFieldColors() {
+        const emailTextField = <TextField>this.emailTextField.nativeElement
+        const passwordTextField = <TextField>this.passwordTextField.nativeElement
+
+        const mainTextColor = new Color(this.isLoggedIn ? 'black' : '#C4AFB4')
+        emailTextField.color = mainTextColor
+        passwordTextField.color = mainTextColor
+
+        const hintColor = new Color(this.isLoggedIn ? '#ACA6A7' : '#C4AFB4')
+        setHintColor({ view: emailTextField, color: hintColor })
+        setHintColor({ view: passwordTextField, color: hintColor })
   }
 
 }

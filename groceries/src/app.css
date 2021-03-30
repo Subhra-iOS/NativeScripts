@@ -25,9 +25,15 @@ Button.-primary {
     font-size: 18;
 }
 
+ActionBar {
+    background-color: black;
+    color: white;
+}
+
 Page{
     background-color: white;
     font-size: 15;
+    margin-top: -20;
 }
 
 TextField{
@@ -43,4 +49,9 @@ TextField{
 
 .medium-spacing{
     margin: 10;
+}
+
+ActionBar{
+    background-color: black;
+    color: white;
 }

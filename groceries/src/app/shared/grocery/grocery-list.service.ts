@@ -27,8 +27,8 @@ export class GroceryListService {
                                         return a._kmd.lmt > b._kmd.lmt ? -1 : 1
                                     })
                                     .map( groceryModel => new Grocery(
-                                        groceryModel.id,
-                                        groceryModel.name
+                                        groceryModel._id,
+                                        groceryModel.Name
                                     ))
 
                 return groceryList
@@ -47,10 +47,38 @@ export class GroceryListService {
         )
     }
 
+    public add(itemName: string): Observable<Grocery>{
+        return this.http.post(
+            this.baseUrl,
+            JSON.stringify({
+                Name: itemName
+            }),
+            { headers: this.getCommonHeaders() }
+        ).pipe(
+            map((data: any) => {
+                return new Grocery(data._id, itemName);
+            }),
+            catchError(this.handleErrors)
+        );
+    }
+
+
+    public delete(item: Grocery) {
+        return this.http.delete(
+            this.baseUrl + "/" + item.id,
+            { headers: this.getCommonHeaders() }
+        )
+            .pipe(
+                map(data => {
+                    return data;
+                }),
+                catchError(this.handleErrors)
+            );
+    }
 
 
     private handleErrors(error: HttpErrorResponse){
-        console.log(error)
+        console.log("Error log:" + error)
         return throwError(error)
     }
 
